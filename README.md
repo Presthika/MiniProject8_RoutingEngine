@@ -1,21 +1,13 @@
-# MiniProject8_RoutingEngine
+# Network Routing Engine
 
-# 🌐 Network Routing Engine
-
-A C++ graph-based routing engine that finds paths through a network while respecting minimum bandwidth constraints.
-
-Built for EECE 2140: Computing Fundamentals for Engineers at Northeastern University.
-
----
+A C++ graph-based routing engine that finds a path between two nodes while meeting a minimum bandwidth requirement, built for EECE 2140: Computing Fundamentals for Engineers at Northeastern University (Spring 2026).
 
 ## How it works
 
-- Loads a network topology from a text file (nodes + edges + bandwidth)
-- Uses **DFS (Depth-First Search)** to find a valid path between two nodes
-- Filters paths by minimum bandwidth requirement
-- Built with **smart pointers** (`unique_ptr`) for safe memory management
-
----
+- Loads a network from a text file where each line is an edge: `from to bandwidth`
+- Uses depth-first search (DFS) to find a path to the destination
+- Skips any link with less bandwidth than the minimum requested
+- Stores nodes with smart pointers (`unique_ptr`) for automatic memory management
 
 ## Example output
 
@@ -30,26 +22,22 @@ Path Found (min BW >= 100): 0 -> 1 -> 3 -> 5
 No path found from 0 to 5 with min BW >= 200
 ```
 
----
+## How to run
+
+Run from the repo folder so the program can find `network.txt`:
+
+```bash
+clang++ -std=c++17 RoutingEngine.cpp -o routing
+./routing
+```
 
 ## Files
 
 | File | Description |
 |---|---|
-| `RoutingEngine.cpp` | Main source code |
+| `RoutingEngine.cpp` | Source code |
 | `network.txt` | Sample network topology |
 
----
+## Author
 
-## Tech Stack
-
-- C++
-- Smart pointers (`unique_ptr`)
-- DFS algorithm
-- File I/O
-
----
-
-## Course
-
-Northeastern University · EECE 2140 · Spring 2026
+Presthika Vijaykumar
